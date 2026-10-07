@@ -30,7 +30,7 @@ Endre variablene øverst i `exRegMon.ps1`:
 
 ## Krav
 
-- Windows PowerShell 5.1 eller PowerShell 7 (testet at hendelsesregistreringen fungerer i 7.6)
+- Windows PowerShell 5.1 eller PowerShell 7 (testet i 7.6)
 - Tilgang til å lese nøkkelen. Noen nøkler krever at PowerShell kjøres som administrator.
 
 ## Begrensninger
