@@ -39,7 +39,7 @@ $initialData = Get-InitialRegistrySnapshot -path $registryPath
 foreach ($k in $initialData.Keys) { $global:regState[$k] = $initialData[$k] }
 Write-Host "Start-snapshot fullført ($($global:regState.Count) verdier registrert)." -ForegroundColor Green
 
-Write-Host "`nRegistry-overvåking startet (PowerShell 5.1)..." -ForegroundColor Green
+Write-Host "`nRegistry-overvåking startet..." -ForegroundColor Green
 Write-Host "Overvåker tre: $registryPath" -ForegroundColor Green
 Write-Host "Trykk Ctrl+C for å stoppe overvåking.`n" -ForegroundColor Yellow
 
