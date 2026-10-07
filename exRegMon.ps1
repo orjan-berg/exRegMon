@@ -1,6 +1,6 @@
 # Tweak disse variablene etter ønske
 $registryHive = "HKEY_LOCAL_MACHINE"
-$registryKeyPath = 'SOFTWARE\test'
+$registryKeyPath = "SOFTWARE\WOW6432Node\Visma\Visma Business\CurrentVersion"
 
 # Mapp HKEY-navn til PowerShell PS-Drive
 $hiveMap = @{
