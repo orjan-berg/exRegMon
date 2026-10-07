@@ -25,10 +25,16 @@ Endre variablene øverst i `exRegMon.ps1`:
 
 | Variabel | Beskrivelse |
 |---|---|
-| `$registryHive` | Registergren, f.eks. `HKEY_LOCAL_MACHINE` eller `HKEY_CURRENT_USER` |
+| `$registryHive` | Registergren, f.eks. `HKEY_LOCAL_MACHINE` eller `HKEY_USERS`. `HKEY_CURRENT_USER` støttes ikke av hendelsen (se under) |
 | `$registryKeyPath` | Nøkkelen som skal overvåkes, uten hive |
 
 ## Krav
 
-- Windows PowerShell 5.1
+- Windows PowerShell 5.1 eller PowerShell 7 (testet at hendelsesregistreringen fungerer i 7.6)
 - Tilgang til å lese nøkkelen. Noen nøkler krever at PowerShell kjøres som administrator.
+
+## Begrensninger
+
+`RegistryTreeChangeEvent` støtter ikke `HKEY_CURRENT_USER` og gir feilen «Invalid query». For å overvåke en nøkkel i din egen bruker, bruk `HKEY_USERS` og legg bruker-SID først i nøkkelstien, f.eks. `$registryKeyPath = "<SID>\Software\..."`. SID-en får du med `[Security.Principal.WindowsIdentity]::GetCurrent().User.Value`.
+
+Obs: scriptet leser selv verdiene via PowerShell-stasjonen (`HKLM:` osv. etter mapping), og `HKEY_USERS` mappes til `HKU:`, som må være tilgjengelig. Dette er ikke testet.
